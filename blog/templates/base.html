@@ -9,10 +9,17 @@
 <body>
     <header class="card p-3 m-3">
         <div class="nav-left">
-            <h1><a class="text-decoration-none text-success" href="{% url 'home' %}">Django</a></h1>
-            <a class="text-decoration-none" href="{% url 'post_new' %}">+ New Post</a>
+            <h1><a class="text-decoration-none text-success" href="{% url 'home' %}">LogForT</a></h1>
         </div>
-        <div class="nav-right"></div>
+        <div class="nav-right">
+            {% if user.is_authenticated %}
+                <a class="text-decoration-none" href="{% url 'post_new' %}">+ New Post</a>
+                <p class="mb-0 mt-2">Hi {{ user.username }}!</p>
+                <a class="text-decoration-none text-danger" href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a class="text-decoration-none" href="{% url 'login' %}">Login</a>
+            {% endif %}
+        </div>
     </header>
 
     <div class="container">
