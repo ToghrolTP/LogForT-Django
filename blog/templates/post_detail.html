@@ -7,4 +7,5 @@
     </div>
 
     <div class="card bg-light my-2 p-3"><a class="text-decoration-none" href="{% url 'post_edit' post.pk %}">Edit</a></div>
+    <div class="card bg-danger my-2 p-3"><a class="text-white text-decoration-none" href="{% url 'post_delete' post.pk %}">Delete</a></div>
 {% endblock content %}
